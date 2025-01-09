@@ -1,0 +1,1 @@
+# safedeal52.github.io
