@@ -1,0 +1,89 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>중고거래 데모 사이트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <header>
+    <h1>안심 중고거래 데모</h1>
+    <nav>
+      <a href="#price-section">시세 측정</a>
+      <a href="#dispute-section">분쟁 지원</a>
+      <a href="#guarantee-section">전액보장</a>
+    </nav>
+  </header>
+
+  <!-- 메인 배너/소개 -->
+  <section class="banner">
+    <h2>안전하고 신뢰할 수 있는 중고거래를 만나보세요!</h2>
+    <p>무료 시세조회 + 유료 분쟁지원 & 전액보장</p>
+    <button onclick="alert('시연 페이지입니다 :)')">서비스 시작하기</button>
+  </section>
+
+  <!-- 1. 시세 측정 섹션 (무료) -->
+  <section id="price-section" class="content-section">
+    <h2>중고거래 물품 시세 측정 (무료)</h2>
+    <p>타 플랫폼 데이터를 활용해, 시세를 간단히 확인해보세요!</p>
+
+    <!-- 간단한 폼: 실제 동작 대신 UI만 -->
+    <form onsubmit="return showPriceResult(event);">
+      <label for="itemName">물품명:</label>
+      <input type="text" id="itemName" name="itemName" placeholder="예: 아이폰 12 64GB" required/>
+      <button type="submit">시세 조회하기</button>
+    </form>
+
+    <!-- 결과 표시 공간 (데모) -->
+    <div id="price-result" class="hidden">
+      <h3>시세 조회 결과(데모)</h3>
+      <p>최저가 ~ 최고가: 90,000원 ~ 110,000원 (가상의 데이터)</p>
+      <p>평균 시세: 100,000원</p>
+    </div>
+  </section>
+
+  <!-- 2. 분쟁 지원 섹션 (유료) -->
+  <section id="dispute-section" class="content-section">
+    <h2>분쟁 지원 서비스 (유료)</h2>
+    <p>거래 중 문제가 생기셨나요? 적극적인 분쟁 해결을 지원해드립니다.</p>
+    <button onclick="showDisputeForm()">분쟁 지원 신청</button>
+
+    <!-- 분쟁 신청 폼 (모달창 형태 or 숨김처리) -->
+    <div id="dispute-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeDisputeForm()">&times;</span>
+        <h3>분쟁 신청 양식 (데모)</h3>
+        <form onsubmit="return submitDispute(event);">
+          <label>거래 상품명:</label>
+          <input type="text" placeholder="예: 아이폰 12" required/><br/>
+          <label>분쟁 내용:</label>
+          <textarea placeholder="문제 상황 상세 기재" required></textarea><br/>
+          <button type="submit">결제 후 분쟁 신청</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 전액보장 섹션 (유료) -->
+  <section id="guarantee-section" class="content-section">
+    <h2>전액보장 시스템 (유료)</h2>
+    <p>고가 물품 거래 시, 전액보장 옵션을 선택하면 안전하게 거래할 수 있습니다.</p>
+    <button onclick="alert('전액보장 신청 페이지(데모)로 이동')">전액보장 가입하기</button>
+    <div class="note">
+      <p>※ 실제 결제 기능은 구현되지 않았습니다. 데모 페이지입니다.</p>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>Copyright &copy; 2023 
+      <strong>우리팀</strong> - 안심 중고거래 데모
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
