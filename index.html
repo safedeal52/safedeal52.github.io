@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>SafeDeal - 믿을 수 있는 중고거래</title>
+  <title>SEESAW - 믿을 수 있는 중고거래</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Bootstrap 5 CSS -->
@@ -163,6 +163,17 @@
       border: 1px solid var(--carrot-border);
     }
 
+    /* 중고보증보험 카드 */
+    .insurance-card {
+      border: 1px solid var(--carrot-border);
+      background-color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .insurance-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
     /* 푸터 */
     footer {
       background-color: var(--carrot-orange);
@@ -197,7 +208,7 @@
   <!-- [1] 상단 네비게이션 바 -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">SafeDeal</a>
+      <a class="navbar-brand" href="#">SEESAW</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -217,6 +228,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#disputeForm">분쟁접수</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#insurance">중고보증보험</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#status">진행현황</a>
@@ -250,7 +264,7 @@
   <!-- [2] Hero Section -->
   <section id="home" class="hero-section">
     <div class="hero-content">
-      <h1>중고거래, 이제 걱정말고 SafeDeal!</h1>
+      <h1>중고거래, 이제 걱정말고 SEESAW!</h1>
       <p>AI와 전액보장으로 분쟁 없는 안전 거래를 경험하세요.</p>
       <button class="btn btn-light" onclick="scrollToSection('disputeForm')">
         분쟁접수 바로가기
@@ -270,7 +284,7 @@
             <h5 class="card-title">무료 시세 조회</h5>
             <p class="card-text">
               내 중고 물품, 어느 정도로 팔면 적정할까?<br />
-              SafeDeal의 빅데이터 시세조회로 확인!
+              SEESAW의 빅데이터 시세조회로 확인!
             </p>
             <button
               class="btn btn-outline-primary"
@@ -301,20 +315,18 @@
       </div>
       <div class="col-md-3">
         <div class="card text-center">
-          <div class="card-body">
-            <i class="bi bi-shield-lock display-5 mb-3"></i>
-            <h5 class="card-title">전액보장 시스템</h5>
-            <p class="card-text">
-              명품, 전자기기 등 고가품도 안심!<br />
-              보증 가입 후 혹시 모를 사기에도 전액 환불 보장
-            </p>
-            <button
-              class="btn btn-outline-warning"
-              onclick="alert('전액보장 서비스 안내 페이지 이동')"
-            >
-              자세히 보기
-            </button>
-          </div>
+          <i class="bi bi-shield-lock display-5 mb-3"></i>
+          <h5 class="card-title">전액보장 시스템</h5>
+          <p class="card-text">
+            명품, 전자기기 등 고가품도 안심!<br />
+            보증 가입 후 혹시 모를 사기에도 전액 환불 보장
+          </p>
+          <button
+            class="btn btn-outline-warning"
+            onclick="alert('전액보장 서비스 안내 페이지 이동')"
+          >
+            자세히 보기
+          </button>
         </div>
       </div>
     </div>
@@ -365,6 +377,80 @@
               접수하기
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 중고보증보험 섹션 -->
+    <section id="insurance" class="my-5 insurance-section">
+      <h2 class="section-title">중고보증보험</h2>
+      <div class="card insurance-card p-4">
+        <div class="row g-4">
+          <!-- 보험 정보 -->
+          <div class="col-md-6">
+            <h4>안전한 거래를 위한 중고보증보험</h4>
+            <p>
+              SEESAW의 중고보증보험은 AI를 기반으로 판매자의 안정성과 상품의 품질을 검증하여 보증이 가능한 상품인지 확인합니다. 판매금액의 2%를 지불하여 보증 보험에 가입하면, 거래 중 문제가 발생했을 때 전액 환불 및 분쟁 해결 대리를 받을 수 있습니다.
+            </p>
+            <ul>
+              <li>AI 기반 판매자 신뢰도 분석</li>
+              <li>상품 품질 자동 검증</li>
+              <li>보증 가입 시 판매금액의 2% 부과</li>
+              <li>문제 발생 시 전액 환불 보장</li>
+              <li>분쟁 해결 대리 서비스 제공</li>
+            </ul>
+          </div>
+
+          <!-- 보험 가입 폼 -->
+          <div class="col-md-6">
+            <h5>보증보험 가입하기</h5>
+            <form id="insuranceForm">
+              <div class="mb-3">
+                <label for="sellerNickname" class="form-label">판매자 닉네임</label>
+                <input type="text" class="form-control" id="sellerNickname" placeholder="예: seller123" required />
+              </div>
+              <div class="mb-3">
+                <label for="productName" class="form-label">상품명</label>
+                <input type="text" class="form-control" id="productName" placeholder="예: 아이폰 14" required />
+              </div>
+              <div class="mb-3">
+                <label for="salePrice" class="form-label">판매 금액 (원)</label>
+                <input type="number" class="form-control" id="salePrice" placeholder="예: 1000000" required />
+              </div>
+              <div class="mb-3">
+                <label for="insuranceType" class="form-label">보험 유형</label>
+                <select id="insuranceType" class="form-select" required>
+                  <option value="" disabled selected>선택하세요</option>
+                  <option value="구매자">구매자</option>
+                  <option value="판매자">판매자</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success w-100">
+                보증보험 가입하기 (2% 결제)
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- 가입 현황 테이블 -->
+      <div class="mt-4">
+        <h5>보증보험 가입 현황</h5>
+        <p id="noInsuranceMsg" class="text-muted">현재 가입된 보증보험이 없습니다.</p>
+        <div id="insuranceTableWrapper" style="display: none;">
+          <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th>보험번호</th>
+                <th>판매자</th>
+                <th>상품명</th>
+                <th>판매 금액</th>
+                <th>보험 유형</th>
+                <th>상태</th>
+              </tr>
+            </thead>
+            <tbody id="insuranceTableBody"></tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -598,7 +684,7 @@
   <footer>
     <div class="container">
       <p class="mb-0">
-        &copy; 2025 SafeDeal Corp. All Rights Reserved.
+        &copy; 2025 SEESAW Corp. All Rights Reserved.
       </p>
       <small>“전액보장”과 “AI·빅데이터 기반 신뢰 시스템”으로 분쟁 없는 중고거래 실현</small>
     </div>
@@ -725,7 +811,7 @@
         </div>
         <div class="modal-footer">
           <small class="text-muted"
-            >SafeDeal에 오신 것을 환영합니다!</small
+            >SEESAW에 오신 것을 환영합니다!</small
           >
         </div>
       </div>
@@ -751,6 +837,7 @@
     }
 
     let disputeCount = 0;
+    let insuranceCount = 0;
 
     // [분쟁접수] 예시 로직 (단순 데모)
     function submitDispute() {
@@ -811,9 +898,67 @@
         `고발 서류 생성!\n\n[피해금액] ${amt}\n[사건 개요]\n${det}\n\n(실제 PDF 생성/신고는 서버 연동 필요)`
       );
     }
+
+    // [중고보증보험 가입] 예시 로직
+    document.getElementById("insuranceForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const sellerNickname = document.getElementById("sellerNickname").value.trim();
+      const productName = document.getElementById("productName").value.trim();
+      const salePrice = parseInt(document.getElementById("salePrice").value);
+      const insuranceType = document.getElementById("insuranceType").value;
+
+      if (!sellerNickname || !productName || !salePrice || !insuranceType) {
+        alert("모든 항목을 입력해주세요!");
+        return;
+      }
+
+      // AI 검증 시뮬레이션 (실제 구현 시 서버 연동 필요)
+      const isEligible = Math.random() > 0.2; // 80% 확률로 가입 가능
+
+      if (!isEligible) {
+        alert("AI 검증 결과, 보증 보험 가입이 불가능한 상품입니다.");
+        return;
+      }
+
+      insuranceCount++;
+      const timestamp = new Date().getTime().toString().slice(-4);
+      const insuranceId = "I" + timestamp + insuranceCount;
+      const insuranceFee = Math.round(salePrice * 0.02);
+
+      // 결제 시뮬레이션 (실제 구현 시 결제 시스템 연동 필요)
+      const confirmPayment = confirm(`보증보험 가입비 ${insuranceFee}원을 결제하시겠습니까?`);
+      if (!confirmPayment) {
+        alert("보증보험 가입이 취소되었습니다.");
+        return;
+      }
+
+      // 테이블에 표시
+      document.getElementById("noInsuranceMsg").style.display = "none";
+      document.getElementById("insuranceTableWrapper").style.display = "block";
+
+      const tbody = document.getElementById("insuranceTableBody");
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${insuranceId}</td>
+        <td>${sellerNickname}</td>
+        <td>${productName}</td>
+        <td>${salePrice.toLocaleString()}원</td>
+        <td>${insuranceType}</td>
+        <td>활성화됨</td>
+      `;
+      tbody.appendChild(newRow);
+
+      alert(
+        `보증보험 가입 완료!\n\n[보험번호] ${insuranceId}\n[판매자] ${sellerNickname}\n[상품명] ${productName}\n[판매 금액] ${salePrice.toLocaleString()}원\n[보험 유형] ${insuranceType}\n[보험료] ${insuranceFee.toLocaleString()}원`
+      );
+
+      // 폼 초기화
+      document.getElementById("sellerNickname").value = "";
+      document.getElementById("productName").value = "";
+      document.getElementById("salePrice").value = "";
+      document.getElementById("insuranceType").selectedIndex = 0;
+    });
   </script>
 </body>
 </html>
-
-
-
